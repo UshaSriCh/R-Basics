@@ -1,0 +1,59 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+Topic: Character Vector manipulation
+---
+
+#clear all objects
+```{r}
+rm(list=ls())
+```
+#Assign elements to object vector_last3
+```{r}
+vector_char = c('a','b','c','john','peter','R studio')
+```
+#Display first 4 char of the vector
+```{r}
+vector_char[c(1:4)]
+```
+#Assign elements to object new
+```{r}
+new = c('welcome','data','science')
+```
+#Display 2nd & 3rd char of the vector
+```{r}
+new[c(2,3)]
+```
+#Display last 3 char of the vector
+```{r}
+a = length(vector_char)
+vector_char[(a-2):a]
+vector_char[seq(a-2,a)]
+```
+# Add another char to a vector
+```{r}
+concatenate = c(new, 'add',vector_char)
+```
+#Convert anything to character
+```{r}
+gen_fun = c(143,67,98,34)
+gen_fun_char = as.character(gen_fun)
+
+```
+#Calculate Mean/Median for vector with NA values
+```{r}
+omit_fun = c(45,78,72,34,NA)
+gen_fun = c(45,78,72,34)
+mean(gen_fun)
+mean(omit_fun)
+```
+#Omit NA from the values and calculate Mean/Median
+```{r}
+mean(omit_fun, na.rm=TRUE)
+median(omit_fun, na.rm=TRUE)
+median(gen_fun)
+median(na.omit(omit_fun))
+```
+
