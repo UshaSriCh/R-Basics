@@ -1,0 +1,48 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+#clear all objects
+```{r}
+rm(list=ls())
+```
+#create dataframe with values as iris
+```{r}
+iris_df = data.frame(iris)
+iris_df
+```
+#create a string with name string_df
+```{r}
+string_df = unlist(strsplit('string to dataframe convert',''))
+```
+#create vector with name vector_df
+```{r}
+vector_df = c(10,23,45,78)
+```
+#create matrix matrix_df
+```{r}
+matrix_df = matrix(1:10,2,5,byrow = T)
+```
+
+#check is.data.frame()
+```{r}
+is.data.frame(iris_df)
+is.data.frame(string_df)
+is.data.frame(vector_df)
+is.data.frame(matrix_df)
+```
+#check as.data.frame()
+```{r}
+string_convert = as.data.frame(string_df)
+vector_convert = as.data.frame(vector_df)
+matrix_convert = as.data.frame(matrix_df)
+```
+#validate convertion of string/vector/matrix to dataframe
+```{r}
+is.data.frame(string_convert)
+is.data.frame(vector_convert)
+is.data.frame(matrix_convert)
+```
+
+
+
