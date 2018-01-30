@@ -1,0 +1,78 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+#create a new column in mtcars having values "Yes/No" for wt less than median
+```{r}
+mtcars_wt = mtcars
+mtcars_wt$wt_check = NA
+mtcars_wt$wt_check = ifelse(mtcars_wt$wt < median(mtcars_wt$wt), 'Yes', 'No')
+mtcars_wt
+```
+
+#create a new column in mtcars having values "Yes/No" for gear value equals 5
+```{r}
+mtcars_gear = mtcars
+mtcars_gear$gear_check = NA
+mtcars_gear$gear_check = ifelse(mtcars_gear$gear ==5, 'Yes' , 'No')
+mtcars_gear
+```
+
+#print mtcars names that start with "F"
+```{r}
+mtcars_rownames = rownames(mtcars)
+
+for(i in seq(1,length(mtcars_rownames)))
+{
+  rname = substring(mtcars_rownames[i], 1, 1)
+  if(rname == 'F')
+  {
+    print(mtcars_rownames[i])
+  }
+}
+```
+#Alternate way excluding for loop
+```{r}
+mtcars_rownames = rownames(mtcars)
+
+mtcars_rownames[substr(mtcars_rownames,1,1)=='F']
+```
+
+#Check the gear value in mtcars for all rows if it is 1/2/3/4/5 and print the value
+```{r}
+for(i in seq(1,length(mtcars_rownames)))
+{
+  gear_num = mtcars_gear$gear[i]
+  print(switch(gear_num, 'Gear is 1', 'Gear is 2' , 'Gear is 3', 'Gear is 4', 'Gear is 5'))
+}
+```
+#Print even numbers from 1-5 using switch statement
+```{r}
+for(i in 1:5)
+  if (i %% 2 == 0)
+  {
+  print(switch(i, 'I am 1', 'I am 2' , 'I am 3', 'I am 4'))
+  }
+```
+#Print sum of all mpg and gear values in mtcars using While stmt
+```{r}
+i=1
+sum_mpg = 0 
+sum_gear =0
+mtcars_mpg = mtcars
+while(i <= length(mtcars_rownames))
+{ 
+  sum_mpg = sum_mpg + mtcars_mpg$mpg[i]
+  sum_gear = sum_gear + mtcars_gear$gear[i]
+  i=i+1
+}
+
+print(paste("sum of all gear" , sum_gear))
+print(paste("sum of all mpg" , sum_mpg))
+
+```
+```{r}
+mtcars
+```
+
+
