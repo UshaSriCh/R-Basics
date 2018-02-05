@@ -1,0 +1,35 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+#Package installation and loading
+```{r}
+install.packages('rvest')
+library(rvest)
+```
+#read_html() to extract the html content of the url
+```{r}
+content = read_html('https://news.ycombinator.com/')
+```
+#use inspect tool to get values
+```{r}
+title = content %>% html_nodes('a.storylink') %>% html_text()
+```
+#Identify css selector value using Chrome inspect tool and pass it as an argument to html_nodes()
+```{r}
+title <- content %>% html_nodes('a.storylink') %>% html_text()
+link_domain <- content %>% html_nodes('span.sitestr') %>% html_text()
+score <- content %>% html_nodes('span.score') %>% html_text()
+age <- content %>% html_nodes('span.age') %>% html_text()
+```
+#create dataframe with all the extracted elements
+```{r}
+df = data.frame(title = title, link_domain = link_domain, score = score, age = age)
+```
+#view dataframe df
+```{r}
+df
+```
+
+
