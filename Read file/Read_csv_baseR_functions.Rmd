@@ -1,0 +1,36 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+#Read file FL_insurance_sample.csv
+```{r}
+csv_baseR = read.csv('D:\\R_Project\\FL_insurance_sample.csv', header = T, stringsAsFactors = F )
+```
+#View csv_baseR
+```{r}
+csv_baseR
+```
+#Base R operations
+#Summary
+```{r}
+summary(csv_baseR)
+```
+#str
+```{r}
+str(csv_baseR)
+```
+#Head
+```{r}
+head(csv_baseR)
+```
+#Dim
+```{r}
+dim(csv_baseR)
+```
+#Tail
+```{r}
+tail(csv_baseR)
+```
+
+
